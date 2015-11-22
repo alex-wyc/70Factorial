@@ -1,3 +1,3 @@
 import google
-import requests
-import beautifulsoup
+#import requests
+#import beautifulsoup
