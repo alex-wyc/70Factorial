@@ -1,4 +1,17 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+<div class = "container">
+  <h1> 70! </h1>
+</div>
+
+<div class = "container">
+  {% for result in results %}
+  <div class = "container" >
+    <center>
+      <p> result </p>
+    </center>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
