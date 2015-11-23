@@ -47,9 +47,10 @@ def get_text_from_url(url):
 
     r = requests.get(url)
     raw = r.text
-    text = re.sub("\<[^\>]\>", " ", raw) # nuke html tags
-    text = re.sub("[\t\n ]+",' ',text) # nuke empty spaces
-    return text2
+    p = re.compile(r'<.*?>')
+    text = p.sub("", raw) # nuke html tags
+    text = re.sub(r"[\t\n]+",' ',text) # nuke empty spaces
+    return text
 
 def who(corrolation, haystack):
     """
@@ -71,9 +72,9 @@ def who(corrolation, haystack):
     """
 
 if __name__ == '__main__':
-    list_of_urls = get_list_of_urls(raw_input("What would you like to know? "), 10)
-    for i in list_of_urls:
-        print i
-    print
-    print get_text_from_url(list_of_urls[4])
+    #list_of_urls = get_list_of_urls(raw_input("What would you like to know? "), 10)
+    #for i in list_of_urls:
+    #    print i
+    #print
+    print get_text_from_url("https://en.wikipedia.org/wiki/Spider-Man")
 
