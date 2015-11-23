@@ -9,7 +9,8 @@ def root():
 @app.route("/results")
 def results():
     results = ['a', 'b', 'c']
-    return render_template('results.html', results)
+    question = "What is the first letter of the alphabet?"
+    return render_template('results.html', question=question, results=results)
 
 if __name__ == "__main__":
     app.run(host = "0.0.0.0", port = 8000, debug = True)

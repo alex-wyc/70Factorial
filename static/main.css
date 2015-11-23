@@ -28,6 +28,16 @@
     font-size: 100px;
 }
 
+#question {
+    color: #990033;
+    text-align: center;
+    font-size: 60px;
+}
+
+#result {
+    font-size: 25px;
+}
+
 ::-webkit-input-placeholder {
     color: #999999;
     text-align: center;

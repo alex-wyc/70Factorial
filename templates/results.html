@@ -2,14 +2,14 @@
 
 {% block body %}
 <div class = "container">
-  <h1> 70! </h1>
+  <h1 id="question"> {{question}} </h1>
 </div>
 
 <div class = "container">
   {% for result in results %}
   <div class = "container" >
     <center>
-      <p> result </p>
+      <p id = "result"> #{{loop.index}} Result: {{result}} </p>
     </center>
   </div>
   {% endfor %}
