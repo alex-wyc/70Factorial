@@ -46,11 +46,29 @@ def get_text_from_url(url):
     """
 
     r = requests.get(url)
-    soup = bs4.BeautifulSoup(r.text)
-    raw = soup.get_text(r.text)
-    text = re.sub("[\t\n ]+",' ',raw)
-    text2 = re.sub("\<[^\>]\>", " ", text);
+    raw = r.text
+    text = re.sub("\<[^\>]\>", " ", raw) # nuke html tags
+    text = re.sub("[\t\n ]+",' ',text) # nuke empty spaces
     return text2
+
+def who(corrolation, haystack):
+    """
+    who: finds the NAME that corrolates with corrolation the most within a given
+    haystack
+
+    Args:
+        corrolation (string): the string to look matches for
+	haystack (string): the haystack to search in
+    
+    Returns:
+        A name that corrolates the most
+    
+    Example:
+        TODO
+    
+    Raises:
+        TODO
+    """
 
 if __name__ == '__main__':
     list_of_urls = get_list_of_urls(raw_input("What would you like to know? "), 10)
