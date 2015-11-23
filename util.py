@@ -46,14 +46,16 @@ def get_text_from_url(url):
     """
 
     r = requests.get(url)
-    soup = bs4.BeautifulSoup(r.text, "lxml")
+    soup = bs4.BeautifulSoup(r.text)
     raw = soup.get_text(r.text)
     text = re.sub("[\t\n ]+",' ',raw)
-    return text
+    text2 = re.sub("\<[^\>]\>", " ", text);
+    return text2
 
 if __name__ == '__main__':
     list_of_urls = get_list_of_urls(raw_input("What would you like to know? "), 10)
     for i in list_of_urls:
         print i
+    print
     print get_text_from_url(list_of_urls[4])
 
