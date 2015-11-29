@@ -2,15 +2,17 @@
 {% block body %}
 
 <div id="main-div" class = "container">
-  <h1 id="main-header"> 70! Factorial </h1>
-  
-  <form role="form" method="GET" action="/results">
-    <div class="input-group">
-      <input type="text" name="sumName" placeholder="Enter Your Query Here..." id="form-input" class="form-control input-lg">
-      <span class="input-group-btn">
-	<button type="submit" id="form-btn" class="btn btn-default">Submit</button>
-      </span>
-    </div>
-  </form>
+    <h1 id="main-header"> 70! </h1>
+
+    <form class="form-inline" role="form" method="GET" action="/results" style="text-align: center">
+        <div class="form-group">
+            <select class="form-control input-lg" name="type">
+                <option>Who</option>
+                <option>When</option>
+            </select>
+            <input type="text" name="sumName" placeholder="Enter Your Query Here..." id="form-input" class="form-control input-lg" size="60">
+            <button type="submit" id="form-btn" class="btn btn-default">Search!</button>
+        </div>
+    </form>
 </div>
 {% endblock %}
