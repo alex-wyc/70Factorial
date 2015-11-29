@@ -17,9 +17,9 @@ def results():
         for url in urls:
             text = util.get_text_from_url(url)
             if mode == 'Who':
-                current_results = util.find_name(text)
+                current_results = util.find_name(text, current_results)
             else:
-                current_results = util.find_date(text)
+                current_results = util.find_date(text, current_results)
         print current_results
         return render_template('results.html',results = current_results)
     else:
