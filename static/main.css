@@ -36,24 +36,21 @@
     padding-bottom: 30px;
 }
 
-div#content {
-    display: none;
-    }
-
-div#loading {
-    top: 200 px;
-    margin: auto;
-    position: absolute;
-    z-index: 1000;
-    width: 160px;
-    height: 24px;
-    background: url(loading.gif) no-repeat;
-    cursor: wait;
-    }
-
 #result {
     font-size: 25px;
     padding-bottom: 10px;
+}
+
+body {
+    background: #770011;
+}
+
+.non-background {
+    background: #FFFFFF;
+    padding: 20px;
+    border-width: 15px;
+    border-color: #ffcc00;
+    border-style: groove;
 }
 
 ::-webkit-input-placeholder {
