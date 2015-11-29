@@ -10,7 +10,7 @@ def root():
 @app.route("/results", methods = ["GET", "POST"])
 def results():
     if request.method == "GET":
-        query = request.args['sumName']
+        query = request.args['question']
         mode = request.args['type']
         urls = util.get_list_of_urls(query,10) 
         current_results = {}
