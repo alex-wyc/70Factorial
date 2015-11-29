@@ -34,6 +34,10 @@ MONTH_TABLE = {
 def get_list_of_urls(to_google, num_results):
     """
     get_list_of_urls: returns a list of urls 
+<<<<<<< HEAD
+=======
+
+>>>>>>> backend
     Args:
         to_google (string): a string 
         num_results (int): the number of results
@@ -52,6 +56,7 @@ def get_list_of_urls(to_google, num_results):
 def get_text_from_url(url):
     """
     get_text_from_url: returns the text of a website from a given url
+
     Args:
         url (string): the url to explore
     
@@ -68,6 +73,7 @@ def get_text_from_url(url):
 def find_name(haystack, current_results = {}):
     """
     find_name: find everything that looks like a name in the haystack
+
     Args:
         haystack (string): the haystack to search in
         current_results (dictionary, optional): if we have already had
@@ -93,6 +99,7 @@ def find_date(haystack, result={}):
     """
     find_date: finds everything in haystack that looks like a date-time
         and updates the frequency in result
+
     Args:
         haystack (string): the haystack to look for time
 	result (dictionary): the frequency table that will be updated, default
@@ -139,6 +146,7 @@ def sort_dict_by_value(dict, num_results):
     """
     sort_dict_by_value: return a list of the top num_results keys sorted
         by the value of the dictionary
+
     Args:
         dict (dictionary): the dictionary that needs to be sorted
 	num_results (int): the number of desired results
