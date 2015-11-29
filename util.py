@@ -34,10 +34,7 @@ MONTH_TABLE = {
 def get_list_of_urls(to_google, num_results):
     """
     get_list_of_urls: returns a list of urls 
-<<<<<<< HEAD
-=======
 
->>>>>>> backend
     Args:
         to_google (string): a string 
         num_results (int): the number of results
@@ -66,8 +63,8 @@ def get_text_from_url(url):
 
     r = requests.get(url)
     raw = r.text
-    text = regex.html_tag.sub("", raw) # nuke html tags
-    text = regex.empty_space.sub(" ", text) # remove spaces
+    text = re.sub(regex.html_tag, "", raw)
+    text = re.sub(regex.empty_space, " ", text)
     return text
 
 def find_name(haystack, current_results = {}):
@@ -86,8 +83,7 @@ def find_name(haystack, current_results = {}):
     Example:
         find_name("Superman is Clark Kent!") --> {"Clark Kent" : 1}
     """
-    name = regex.name
-    a = re.findall(name, haystack)
+    a = re.findall(regex.name, haystack)
     for i in a:
         if i in current_results:
             current_results[i] += 1
@@ -95,14 +91,14 @@ def find_name(haystack, current_results = {}):
             current_results[i] = 1
     return current_results
 
-def find_date(haystack, result={}):
+def find_date(haystack, current_results={}):
     """
     find_date: finds everything in haystack that looks like a date-time
         and updates the frequency in result
 
     Args:
         haystack (string): the haystack to look for time
-	result (dictionary): the frequency table that will be updated, default
+	current_results (dictionary): the frequency table that will be updated, default
         	value is an empty dictionary
     
     Returns:
@@ -170,7 +166,8 @@ if __name__ == '__main__':
     else:
         mode = 'when'
 
-    list1 = get_list_of_urls(input, 10);
+    list1 = get_list_of_urls(input, 10)
+
     current_results = {}
     for i in list1:
         text = get_text_from_url(i)
