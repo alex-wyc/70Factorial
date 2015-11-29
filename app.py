@@ -9,9 +9,21 @@ def root():
 
 @app.route("/results", methods = ["GET", "POST"])
 def results():
-    # TODO this is where one uses backend for loading stuff
-    # NOTE that the method SHOULD BE GET
-    return
+    if request.method == "GET":
+        query = request.args['sumName']
+        mode = request.args['type']
+        urls = util.get_list_of_urls(query,10) 
+        current_results = {}
+        for url in urls:
+            text = util.get_text_from_url(url)
+            if mode == 'Who':
+                current_results = util.find_name(text)
+            else:
+                current_results = util.find_date(text)
+        print current_results
+        return render_template('results.html',results = current_results)
+    else:
+        return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(host = "0.0.0.0", port = 8000, debug = True)
