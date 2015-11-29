@@ -20,7 +20,7 @@ def results():
                 current_results = util.find_name(text, current_results)
             else:
                 current_results = util.find_date(text, current_results)
-        return render_template('results.html',results = util.sort_dict_by_value(current_results, 10))
+        return render_template('results.html', question = query, results = util.sort_dict_by_value(current_results, 10))
     else:
         return render_template('index.html')
 
